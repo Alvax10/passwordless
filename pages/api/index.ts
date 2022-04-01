@@ -1,5 +1,8 @@
+import { Auth } from "lib/auth";
 import { NextApiRequest, NextApiResponse} from "next";
+import { findOrCreateAuth } from "lib/controllers/auth";
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
-    res.send("Soy la api");
+export default async function (req: NextApiRequest, res: NextApiResponse) {
+    const auth = await findOrCreateAuth(req.body.email);
+    res.send(auth.data);
 }
