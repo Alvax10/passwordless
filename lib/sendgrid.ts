@@ -1,3 +1,4 @@
+import "dotenv/config";
 import * as sgMail from "@sendgrid/mail";
 
 export async function sendCodeToEmail(email: string, code: string) {
